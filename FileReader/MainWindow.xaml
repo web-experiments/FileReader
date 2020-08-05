@@ -1,0 +1,44 @@
+﻿<Window x:Class="FileReader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        xmlns:local="clr-namespace:FileReader"
+        mc:Ignorable="d"
+        Title="PhoneStatistics" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width=".1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width=".1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="89*"/>
+            <RowDefinition Height ="27"/>
+            <RowDefinition Height ="27*"/>
+            <RowDefinition Height ="27*"/>
+            <RowDefinition Height ="27*"/>
+            <RowDefinition Height ="27*"/>
+            <RowDefinition Height ="27*"/>
+            <RowDefinition Height ="89*"/>
+            <RowDefinition Height ="27*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="1" Grid.Row="1">Keine Datei gewählt...</Label>
+        <Button Height="30"  Grid.Column="1" Grid.Row="2">Datei wählen...</Button>
+        <Label Grid.Column="1" Grid.Row="3" FontWeight="Bold">Einstellungen</Label>
+        <Label Grid.Column="1" Grid.Row="4" FontStyle="Italic">Startzeit</Label>
+        <Label Grid.Column="1" Grid.Row="6" FontStyle="Italic">Endezeit</Label>
+        <Border BorderThickness="1px" BorderBrush="Black" Grid.Row="2" Grid.Column="3" Grid.RowSpan="8"></Border>
+        <TextBlock Grid.Column="3"  Grid.Row="2" Grid.RowSpan="8"></TextBlock>
+        <Label Grid.Column="3" Grid.Row="1" FontWeight="Bold" >Auswertung:</Label>
+        <Button Height="30"  Grid.Column="1" Grid.Row="9">Auswerten</Button>
+        <xctk:TimePicker Grid.Row="5" Grid.Column="1"></xctk:TimePicker>
+        <xctk:TimePicker Grid.Row="7" Grid.Column="1"></xctk:TimePicker>
+    </Grid>
+</Window>
