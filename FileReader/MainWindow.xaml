@@ -29,13 +29,16 @@
             <RowDefinition Height ="89*"/>
             <RowDefinition Height ="27*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Column="1" Grid.Row="1">Keine Datei gewählt...</Label>
-        <Button Height="30"  Grid.Column="1" Grid.Row="2">Datei wählen...</Button>
+        <Label x:Name="FileName" Grid.Column="1" Grid.Row="1">Keine Datei gewählt...</Label>
+        <Button Height="30"  Grid.Column="1" Grid.Row="2" Click="BtnOpenFileDialog_Click">Datei wählen...</Button>
         <Label Grid.Column="1" Grid.Row="3" FontWeight="Bold">Einstellungen</Label>
         <Label Grid.Column="1" Grid.Row="4" FontStyle="Italic">Startzeit</Label>
         <Label Grid.Column="1" Grid.Row="6" FontStyle="Italic">Endezeit</Label>
-        <Border BorderThickness="1px" BorderBrush="Black" Grid.Row="2" Grid.Column="3" Grid.RowSpan="8"></Border>
-        <TextBlock Grid.Column="3"  Grid.Row="2" Grid.RowSpan="8"></TextBlock>
+     
+            <Border BorderThickness="1px" BorderBrush="Black" Grid.Row="2" Grid.Column="3" Grid.RowSpan="8"></Border>
+        <ScrollViewer Grid.Column="3"  Grid.Row="2" Grid.RowSpan="8">
+            <TextBlock  Padding="3px"  x:Name="Analyse" Grid.Column="3"  Grid.Row="2" Grid.RowSpan="8"></TextBlock>
+        </ScrollViewer>
         <Label Grid.Column="3" Grid.Row="1" FontWeight="Bold" >Auswertung:</Label>
         <Button Height="30"  Grid.Column="1" Grid.Row="9">Auswerten</Button>
         <xctk:TimePicker Grid.Row="5" Grid.Column="1"></xctk:TimePicker>
