@@ -25,9 +25,14 @@ namespace FileReader
         public MainWindow()
         {
             InitializeComponent();
+            setDefaultValues();
         }
 
- 
+        private void setDefaultValues()
+        {
+            start.Text = "13:00";
+            end.Text = "16:00";
+        }
 
         private void BtnOpenFileDialog_Click(object sender, RoutedEventArgs e)
         {
@@ -35,8 +40,11 @@ namespace FileReader
             if(openFileDialog.ShowDialog() == true)
             {
                 Analyse.Text = File.ReadAllText(openFileDialog.FileName);
-
+                
             }
         }
+
+         
+
     }
 }

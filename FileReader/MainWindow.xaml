@@ -41,7 +41,7 @@
         </ScrollViewer>
         <Label Grid.Column="3" Grid.Row="1" FontWeight="Bold" >Auswertung:</Label>
         <Button Height="30"  Grid.Column="1" Grid.Row="9">Auswerten</Button>
-        <xctk:TimePicker Grid.Row="5" Grid.Column="1"></xctk:TimePicker>
-        <xctk:TimePicker Grid.Row="7" Grid.Column="1"></xctk:TimePicker>
+        <xctk:TimePicker x:Name="start" Grid.Row="5" Grid.Column="1" ValueChanged="start_ValueChanged"></xctk:TimePicker>
+        <xctk:TimePicker x:Name="end" Grid.Row="7" Grid.Column="1"></xctk:TimePicker>
     </Grid>
 </Window>
