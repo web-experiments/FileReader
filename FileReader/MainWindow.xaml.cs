@@ -40,7 +40,25 @@ namespace FileReader
             if(openFileDialog.ShowDialog() == true)
             {
                 Analyse.Text = File.ReadAllText(openFileDialog.FileName);
-                
+                int counter = 0;
+                string line;
+
+                System.IO.StreamReader file = new System.IO.StreamReader(openFileDialog.FileName);
+                while ((line = file.ReadLine()) != null)
+                {
+                    if (counter > 9)
+                    {
+                        if(line.Contains("Gesamtsumme"))
+                        {
+                            break;
+                        }
+                        System.Console.WriteLine(line);
+                        string[] ssize = line.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+                        System.Console.WriteLine("test");
+                    }
+                    counter++;
+                }
+
             }
         }
 
