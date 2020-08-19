@@ -53,8 +53,9 @@ namespace FileReader
                             break;
                         }
                         System.Console.WriteLine(line);
-                        string[] ssize = line.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
-                        System.Console.WriteLine("test");
+                        string[] data = line.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+                        var parsedDate = DateTime.Parse(data[0]);
+                        System.Console.WriteLine(parsedDate.DayOfWeek);
                     }
                     counter++;
                 }
