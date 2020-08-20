@@ -31,40 +31,47 @@ namespace FileReader
             InitializeComponent();
             setDefaultValues();
 
-          
+
             SeriesCollection = new SeriesCollection
             {
-                new LineSeries
+                new StackedColumnSeries
                 {
-                    Title = "Series 1",
-                    Values = new ChartValues<double> { 4, 6, 5, 2 ,4 }
+                    Values = new ChartValues<double> {4, 5, 6, 8},
+                    StackMode = StackMode.Values, // this is not necessary, values is the default stack mode
+                    DataLabels = true,
+                       Title = "Gespräche über 15min"
                 },
-                new LineSeries
+                new StackedColumnSeries
                 {
-                    Title = "Series 2",
-                    Values = new ChartValues<double> { 6, 7, 3, 4 ,6 },
-                    PointGeometry = null
-                },
-                new LineSeries
-                {
-                    Title = "Series 3",
-                    Values = new ChartValues<double> { 4,2,7,2,7 },
-                    PointGeometry = null
+                    Values = new ChartValues<double> {2, 5, 6, 7},
+                    StackMode = StackMode.Values,
+                    DataLabels = true,
+                    Title = "Gespräche unter 15min"
+                    
                 }
             };
 
-            
+            //adding series updates and animates the chart
+            SeriesCollection.Add(new StackedColumnSeries
+            {
+                Values = new ChartValues<double> { 6, 2, 7 },
+                StackMode = StackMode.Values,
+                Title = "Nicht angenommen"
+            });
+
+            //adding values also updates and animates
+            SeriesCollection[2].Values.Add(4d);
 
 
-     
+
+
 
             DataContext = this;
         }
 
         private void setDefaultValues()
         {
-            start.Text = "13:00";
-            end.Text = "16:00";
+          
         }
 
         private void BtnOpenFileDialog_Click(object sender, RoutedEventArgs e)
@@ -72,7 +79,7 @@ namespace FileReader
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if(openFileDialog.ShowDialog() == true)
             {
-                Analyse.Text = File.ReadAllText(openFileDialog.FileName);
+              
                 int counter = 0;
                 string line;
                 int numberofcalls = 0;
